@@ -12,5 +12,7 @@ iptables -A INPUT -i ppp+ -j ACCEPT
 iptables -A OUTPUT -o ppp+ -j ACCEPT
 iptables -A FORWARD -i ppp+ -j ACCEPT
 iptables -A FORWARD -o ppp+ -j ACCEPT
+iptables -t filter -A INPUT -p gre -j ACCEPT
+iptables -t filter -A INPUT -p tcp -m tcp --dport 1723 -j ACCEPT
 
 exec "$@"
