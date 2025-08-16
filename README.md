@@ -7,6 +7,8 @@ https://hub.docker.com/repository/docker/anclave777/xray-reality-rg_alpin/tags/0
 ## Рабочая версия 0.2
 ### Для просмотра публичного ключа и uid  используется команда:
 root@resistance:/home/kwaigon# docker logs romantic_wilson
+
+
 === Конфигурация ===
 
 ## Шаблон формирования конфигурации для подключения
