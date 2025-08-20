@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vladimir Isaev - DevOps Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+            --text-color: #333;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--dark-color) 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .profile-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .profile-info h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--light-color);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            text-align: right;
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .contact-info a:hover {
+            color: var(--secondary-color);
+        }
+        
+        section {
+            padding: 3rem 0;
+            background: white;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+        
+        section:nth-child(even) {
+            background: var(--light-color);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 2rem;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .skill-category {
+            flex: 1;
+            min-width: 250px;
+            margin: 1rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-category h3 i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .skills-list {
+            list-style-type: none;
+        }
+        
+        .skills-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skills-list li i {
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .skills-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .experience-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+            position: relative;
+        }
+        
+        .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .company-name {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+        
+        .job-period {
+            color: var(--dark-color);
+            font-style: italic;
+            margin: 0.5rem 0;
+        }
+        
+        .job-title {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .job-description {
+            margin-top: 0.5rem;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .tag {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin: 0.3rem;
+            transition: var(--transition);
+        }
+        
+        .tag:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--light-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .social-links {
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-info {
+                text-align: center;
+                margin-top: 1.5rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="profile-info">
+                <h1>Vladimir Isaev</h1>
+                <h2>DevOps Engineer</h2>
+            </div>
+            <div class="contact-info">
+                <p><a href="mailto:anclave777@gmail.com">anclave777@gmail.com</a></p>
+                <p>Saint Petersburg, Russia</p>
+                <p>Russian citizenship, work permit: Russia</p>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Experienced DevOps Engineer with 15 years of experience in IT infrastructure. Specializing in building and maintaining high-load fault-tolerant systems.</p>
+                    <p>Diligent, hardworking. Passionate about network technologies and Linux system administration. Enjoy solving interesting and complex challenges. Generally, I would like to work with large developing networks or systems.</p>
+                    <p>Accompanied Netology courses on Python and Information Security as a graduate student.</p>
+                    <p><strong>Employment:</strong> Full-time, part-time, project work</p>
+                    <p><strong>Work schedule:</strong> Full day, flexible hours, remote work</p>
+                    <p><strong>Relocation:</strong> Not ready to relocate, ready for occasional business trips</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> DevOps Tools</h3>
+                    <ul class="skills-list">
+                        <li><i class="fas fa-check"></i> Ansible</li>
+                        <li><i class="fas fa-check"></i> Docker</li>
+                        <li><i class="fas fa-check"></i> Kubernetes</li>
+                        <li><i class="fas fa-check"></i> Gitlab CI/CD</li>
+                        <li><i class="fas fa-check"></i> Jenkins</li>
+                        <li><i class="fas fa-check"></i> Saltstack</li>
+                        <li><i class="fas fa-check"></i> Vault</li>
+                        <li><i class="fas fa-check"></i> Consul</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-line"></i> Monitoring Systems</h3>
+                    <ul class="skills-list">
+                        <li><i class="fas fa-check"></i> Prometheus</li>
+                        <li><i class="fas fa-check"></i> Grafana</li>
+                        <li><i class="fas fa-check"></i> Zabbix</li>
+                        <li><i class="fas fa-check"></i> Alertmanager</li>
+                        <li><i class="fas fa-check"></i> Elastic Stack</li>
+                        <li><i class="fas fa-check"></i> Kibana</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Databases & Queues</h3>
+                    <ul class="skills-list">
+                        <li><i class="fas fa-check"></i> PostgreSQL</li>
+                        <li><i class="fas fa-check"></i> Kafka</li>
+                        <li><i class="fas fa-check"></i> ClickHouse</li>
+                        <li><i class="fas fa-check"></i> Oracle DB</li>
+                        <li><i class="fas fa-check"></i> Redis</li>
+                        <li><i class="fas fa-check"></i> Aerospike</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-network-wired"></i> Networking</h3>
+                    <ul class="skills-list">
+                        <li><i class="fas fa-check"></i> Cisco</li>
+                        <li><i class="fas fa-check"></i> TCP/IP</li>
+                        <li><i class="fas fa-check"></i> BGP/OSPF</li>
+                        <li><i class="fas fa-check"></i> VPN (IPSec/GRE)</li>
+                        <li><i class="fas fa-check"></i> Firewalls (Cisco ASA, Palo Alto)</li>
+                        <li><i class="fas fa-check"></i> Mikrotik</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <ul class="skills-list">
+                        <li><i class="fas fa-check"></i> Python</li>
+                        <li><i class="fas fa-check"></i> Bash</li>
+                        <li><i class="fas fa-check"></i> SQL</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-desktop"></i> Operating Systems</h3>
+                    <ul class="skills-list">
+                        <li><i class="fas fa-check"></i> Linux (RedOS, Astra, Debian, Ubuntu, CentOS)</li>
+                        <li><i class="fas fa-check"></i> Oracle Linux</li>
+                        <li><i class="fas fa-check"></i> FreeBSD</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title">Work Experience</h2>
+            
+            <div class="experience-item">
+                <p class="company-name">Prombusinessbank, PJSC</p>
+                <p class="job-period">June 2024 — Present (1 year 3 months)</p>
+                <p class="job-title">DevOps Engineer</p>
+                <div class="tags">
+                    <span class="tag">OpenSource</span>
+                    <span class="tag">Ansible</span>
+                    <span class="tag">Gitlab</span>
+                    <span class="tag">Kafka/Zookeeper</span>
+                    <span class="tag">Vector/Opensearch</span>
+                    <span class="tag">Vault</span>
+                    <span class="tag">Prometheus/Grafana</span>
+                    <span class="tag">Keycloak</span>
+                    <span class="tag">Consul</span>
+                    <span class="tag">Nginx/Haproxy</span>
+                    <span class="tag">RedOS/Astra</span>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <p class="company-name">Mobile TeleSystems (MTS)</p>
+                <p class="job-period">May 2023 — June 2024 (1 year 2 months)</p>
+                <p class="job-title">Lead DevOps Engineer</p>
+                <div class="tags">
+                    <span class="tag">Oracle Linux</span>
+                    <span class="tag">Hadoop/Spark/Storm</span>
+                    <span class="tag">Kafka/ClickHouse</span>
+                    <span class="tag">Salt/Ansible</span>
+                    <span class="tag">GitlabCI-CD/Jenkins</span>
+                    <span class="tag">Vmserver/Alermanager</span>
+                    <span class="tag">Python</span>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <p class="company-name">Rostelecom</p>
+                <p class="job-period">September 2020 — May 2023 (2 years 9 months)</p>
+                <p class="job-title">Service Center Department Manager (COPM project)</p>
+                <div class="tags">
+                    <span class="tag">Linux</span>
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">Ansible</span>
+                </div>
+                <div class="job-description">
+                    <p>Work as part of the service center, implementation and support of COPM systems in terms of IS DB ORM.</p>
+                    <p>Deployment of software complexes using Ansible, work with Postgres databases, LAMAP (Elasticsearch), analytical activities in working with incoming data and statistics, traffic analytics, training new employees, writing instructions, documentation, department workflow optimization.</p>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <p class="company-name">GRCC, FSUE</p>
+                <p class="job-period">October 2018 — September 2020 (2 years)</p>
+                <p class="job-title">Lead Expert Analyst</p>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">LXD</span>
+                    <span class="tag">Vmvare</span>
+                    <span class="tag">Bash</span>
+                    <span class="tag">Rancher</span>
+                    <span class="tag">Proxmox</span>
+                    <span class="tag">Eve-ng</span>
+                    <span class="tag">Kubernetes</span>
+                </div>
+                <div class="job-description">
+                    <p>Work as part of the Scientific and Technical Center. Analytical expert activities in solving problems and curating state projects in the field of telecommunications throughout Russia.</p>
+                    <p>Maintaining documentation, reporting, preparing technical expertise reports, compiling TOR requests. Participation in acceptance tests as part of the commission.</p>
+                    <p>Testing equipment, vendors, software, researching network protocols and traffic using Snort, Suricata, Scapy, Shorewall, Ntopng, Netfilter.</p>
+                    <p>Writing and analyzing code for various scripts: Bash, Python. Preparing test benches for acceptance tests.</p>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <p class="company-name">TransTeleCom Company, CJSC</p>
+                <p class="job-period">July 2017 — October 2018 (1 year 4 months)</p>
+                <p class="job-title">Chief Specialist of Management Systems, Network Security and COPM Support Department</p>
+                <div class="tags">
+                    <span class="tag">Cisco</span>
+                    <span class="tag">Cisco ASA</span>
+                    <span class="tag">Linux</span>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <p class="company-name">Otkritie Financial Corporation</p>
+                <p class="job-period">July 2014 — July 2017 (3 years 1 month)</p>
+                <p class="job-title">Chief Specialist of Data Transmission Network Support Department</p>
+                <div class="tags">
+                    <span class="tag">Cisco</span>
+                    <span class="tag">ASA</span>
+                    <span class="tag">BGP</span>
+                    <span class="tag">GRE</span>
+                    <span class="tag">Prtg</span>
+                    <span class="tag">Mikrotik</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="experience-item">
+                <p class="company-name">Saratov State Law Academy</p>
+                <p class="job-period">2018</p>
+                <p class="job-title">Law</p>
+            </div>
+            
+            <div class="experience-item">
+                <p class="company-name">Saratov State Technical University named after Yuri Gagarin</p>
+                <p class="job-period">2010</p>
+                <p class="job-title">Socio-Cultural Service and Tourism</p>
+            </div>
+        </section>
+
+        <section id="courses">
+            <h2 class="section-title">Courses & Certifications</h2>
+            
+            <div class="experience-item">
+                <p class="company-name">Netology</p>
+                <p class="job-period">2022</p>
+                <p class="job-title">DevOps Engineer</p>
+            </div>
+            
+            <div class="experience-item">
+                <p class="company-name">IT Academy</p>
+                <p class="job-period">2020</p>
+                <p class="job-title">Cryptographic Information Protection</p>
+            </div>
+            
+            <div class="experience-item">
+                <p class="company-name">Online Course</p>
+                <p class="job-period">2019</p>
+                <p class="job-title">Python for Network Engineers</p>
+            </div>
+            
+            <div class="experience-item">
+                <p class="company-name">Aptech</p>
+                <p class="job-period">2013</p>
+                <p class="job-title">Network Technologies, CCNA</p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Vladimir Isaev - DevOps Engineer</p>
+            <div class="social-links">
+                <a href="mailto:anclave777@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
