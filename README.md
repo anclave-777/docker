@@ -1,6 +1,12 @@
 # docker
 site
 
+В случае протухания серта
+certbot renew --dry-run
+
+systemctl start nginx locally
+
+
 # 🚀 Запуск Nginx + Certbot контейнера
 
 ```bash
