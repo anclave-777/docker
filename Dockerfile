@@ -13,5 +13,5 @@ RUN wget https://github.com/XTLS/Xray-core/releases/latest/download/Xray-linux-6
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-EXPOSE 443
+EXPOSE 8080
 ENTRYPOINT ["/entrypoint.sh"]
