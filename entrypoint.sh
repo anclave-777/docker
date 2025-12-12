@@ -22,14 +22,18 @@ cat > /etc/xray/config.json <<EOL
             "decryption": "none"
         },
         "streamSettings": {
-            "network": "tcp",
+            "network": "http",
             "security": "reality",
             "realitySettings": {
-                "dest": "${DOMAIN:-habr.com}:443",
-                "serverNames": ["${DOMAIN:-habr.com}"],
+                "serverName": "google.com" ,
+                "fingerprint": "firefox",
                 "privateKey": "$PRIVATE_KEY",
-                "shortIds": ["0a381e1f", "be0ce047"]
-            }
+                "shortIds": ["0a381e1f", "be0ce047"],          
+                "spiderX": "/"
+            },
+        "httpSettings": {
+          "host": [""],
+          "path": "/"
         }
     }],
     "outbounds": [{"protocol": "freedom"}]
