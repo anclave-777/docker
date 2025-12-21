@@ -6,7 +6,7 @@ UUID=$(xray uuid)
 KEYS=$(xray x25519)
 PRIVATE_KEY=$(echo "$KEYS" | grep "Private key:" | awk '{print $3}')
 PUBLIC_KEY=$(echo "$KEYS" | grep "Public key:" | awk '{print $3}')
-
+cat > /etc/xray/config.json <<EOL
 {
     "log": {
         "loglevel": "warning"
@@ -57,6 +57,7 @@ PUBLIC_KEY=$(echo "$KEYS" | grep "Public key:" | awk '{print $3}')
         }
     ]
 }
+EOL
 
 echo "=== Конфигурация ==="
 echo "UUID: $UUID"
