@@ -57,8 +57,6 @@ PUBLIC_KEY=$(echo "$KEYS" | grep "Public key:" | awk '{print $3}')
         }
     ]
 }
-}
-EOL
 
 echo "=== Конфигурация ==="
 echo "UUID: $UUID"
