@@ -1,0 +1,40 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+  "inbounds": [
+    {
+      "port": 4443,
+      "listen": "0.0.0.0",
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {
+            "id": "5c4d90fd-2c4c-407d-bef5-08f77c9f7038",
+            "flow": "xtls-rprx-vision"
+          }
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "reality",
+        "realitySettings": {
+          "show": false,
+          "dest": "www.ya.ru:443",
+          "xver": 0,
+          "serverNames": ["www.ya.ru"],
+          "privateKey": "UN3rwglfu0FRAcR6NGmsDFqn3U525ot6aZXuuCCPwnc",
+          "shortIds": ["0a381e1fa219"]
+        }
+      },
+      "sniffing": {
+        "enabled": true,
+        "destOverride": ["http", "tls"]
+      }
+    }
+  ],
+  "outbounds": [
+    {"tag": "direct", "protocol": "freedom"}
+  ]
+}

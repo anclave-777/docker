@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  xray:
+    image: teddysun/xray
+    container_name: xray
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - ./config:/etc/xray
+    restart: unless-stopped
